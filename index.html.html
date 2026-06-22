@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Júnior Manutenções de Celulares - Mais de 10 Anos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 25%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            right: 25%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            background: linear-gradient(90deg, #00D9FF, #FF1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo p {
+            font-size: 11px;
+            color: #00D9FF;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-header {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-header a {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-header a:hover {
+            transform: scale(1.1);
+            background: rgba(0, 217, 255, 0.3);
+        }
+
+        .cta-header {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(90deg, #10B981, #059669);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .cta-header:hover {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+            .cta-header {
+                display: flex;
+            }
+        }
+
+        /* Badge 10 anos */
+        .badge-10anos {
+            position: absolute;
+            top: -10px;
+            right: 60px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 900;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .badge-10anos {
+                position: static;
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 40px 0;
+                gap: 20px;
+            }
+        }
+
+        .hero h2 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+
+        .hero h2 .cyan {
+            background: linear-gradient(90deg, #00D9FF, #0099FF, #00D9FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 .pink {
+            background: linear-gradient(90deg, #FF1493, #FF69B4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .hero p .highlight {
+            color: #00D9FF;
+            font-weight: 600;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(255, 20, 147, 0.2));
+            border: 1px solid rgba(0, 217, 255, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .price-box p {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .price-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .price-features {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #10B981, #059669);
+            color: white;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            border: 2px solid #00D9FF;
+            color: #00D9FF;
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .phone-highlight {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(255, 20, 147, 0.3));
+            border: 1px solid rgba(0, 217, 255, 0.5);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .phone-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 24px;
+        }
+
+        .phone-info p {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .phone-info .number {
+            font-size: 24px;
+            font-weight: 900;
+            color: #00D9FF;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-visual {
+                height: 300px;
+            }
+        }
+
+        .phone-mockup {
+            width: 160px;
+            height: 320px;
+            background: linear-gradient(135deg, #333, #1a1a1a);
+            border-radius: 30px;
+            border: 8px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
+        }
+
+        .phone-mockup::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .phone-screen {
+            width: 130px;
+            height: 280px;
+            background: linear-gradient(135deg, #00D9FF, #FF1493);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        /* Seção de Vídeo */
+        .video-section {
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            border-radius: 24px;
+            padding: 4px;
+            background: linear-gradient(135deg, #00D9FF, #FF1493, #FFD700);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.35);
+        }
+
+        .video-wrapper video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border-radius: 20px;
+            background: #000;
+            object-fit: cover;
+        }
+
+        .video-subtitle {
+            max-width: 480px;
+            margin: 20px auto 0;
+            color: #ccc;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .video-wrapper {
+                max-width: 280px;
+            }
+        }
+
+        /* Seções */
+        section {
+            padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 0;
+            }
+        }
+
+        h3 {
+            font-size: 42px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h3 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+        }
+
+        h3 .highlight {
+            background: linear-gradient(90deg, #00D9FF, #FF1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cards de serviços */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 20, 147, 0.1));
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: rgba(0, 217, 255, 0.7);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00D9FF, #FF1493);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .service-card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Seção de Feedback */
+        .feedback-section {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 20, 147, 0.1));
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+        }
+
+        @media (max-width: 768px) {
+            .feedback-section {
+                padding: 40px 20px;
+            }
+        }
+
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .feedback-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .feedback-form {
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(0, 217, 255, 0.7);
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .star {
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .star:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .star.active {
+            opacity: 1;
+            color: #FFD700;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #10B981, #059669);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+            transform: scale(1.05);
+        }
+
+        .feedback-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feedback-item {
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .feedback-name {
+            font-weight: 700;
+            color: #00D9FF;
+        }
+
+        .feedback-stars {
+            display: flex;
+            gap: 3px;
+        }
+
+        .feedback-stars span {
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .feedback-text {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+            color: #999;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            text-decoration: none;
+            color: #00D9FF;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #FF1493;
+        }
+
+        /* CTA Final */
+        .final-cta {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(255, 20, 147, 0.3));
+            border: 1px solid rgba(0, 217, 255, 0.5);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .final-cta {
+                padding: 40px 20px;
+            }
+        }
+
+        .final-cta h3 {
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .why-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .why-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .why-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .why-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00D9FF, #FF1493);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .why-item h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .why-item p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .why-visual {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(255, 20, 147, 0.2));
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 30px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .why-visual .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .why-visual p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .badge-experience {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 15px;
+            padding: 15px 25px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .badge-experience p {
+            font-size: 12px;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .badge-experience strong {
+            font-size: 28px;
+            color: #FFA500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo-junior.png" alt="Júnior Manutenções de Celulares - Logo" class="logo-img">
+                <div>
+                    <h1>JÚNIOR</h1>
+                    <p>Manutenções de Celulares</p>
+                </div>
+                <span class="badge-10anos">+ 10 ANOS</span>
+            </div>
+            <div class="header-right">
+                <div class="social-header">
+                    <a href="https://www.facebook.com/109057150466075?ref=NONE_xav_ig_profile_page_web" target="_blank" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/juniorcelular_" target="_blank" title="Instagram">📷</a>
+                </div>
+                <a href="https://wa.me/5519999440013?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20manutenção%20de%20celulares." target="_blank" class="cta-header">
+                    <span>💬</span> Fale Conosco
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="display: flex; flex-direction: column;">
+            <div>
+                <h2>
+                    <span class="cyan">SEU CELULAR</span><br>
+                    <span class="pink">EM BOAS MÃOS</span>
+                </h2>
+                <p>Consertos rápidos, seguros e confiáveis. Tela quebrada, bateria fraca ou problemas técnicos? <span class="highlight">A gente resolve!</span></p>
+
+                <div class="badge-experience">
+                    <p>Mais de</p>
+                    <strong>10 ANOS NO MERCADO</strong>
+                </div>
+
+                <div class="price-box">
+                    <p>troca de tela a partir de</p>
+                    <div class="price-value">R$ 99,00</div>
+                    <div class="price-features">
+                        ✓ Qualidade garantida<br>
+                        ✓ Peças originais<br>
+                        ✓ Atendimento especializado
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5519999440013?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20manutenção%20de%20celulares." target="_blank" class="btn btn-primary">
+                        <span>💬</span> Chamar no WhatsApp
+                    </a>
+                    <a href="tel:+5519999440013" class="btn btn-secondary">
+                        <span>📱</span> Ligar Agora
+                    </a>
+                </div>
+
+                <div class="phone-highlight">
+                    <div class="phone-icon">💬</div>
+                    <div class="phone-info">
+                        <p>WhatsApp direto</p>
+                        <div class="number">(19) 99944-0013</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="phone-mockup">
+                <div class="phone-screen">🔧</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeo -->
+    <section class="video-section">
+        <div class="container">
+            <h3>Veja na <span class="highlight">Prática</span></h3>
+            <div class="video-wrapper">
+                <video controls playsinline preload="metadata" poster="">
+                    <source src="video-junior.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeo HTML5.
+                </video>
+            </div>
+            <p class="video-subtitle">Confira de perto a qualidade do nosso atendimento e reparo de celulares.</p>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section>
+        <div class="container">
+            <h3>Nossos <span class="highlight">Serviços</span></h3>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h4>Tela Quebrada</h4>
+                    <p>Troca rápida e segura da tela do seu celular</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔋</div>
+                    <h4>Bateria e Carregador</h4>
+                    <p>Substituição de bateria com garantia</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h4>Problemas Técnicos</h4>
+                    <p>Reparo de hardware e software</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por que escolher -->
+    <section>
+        <div class="container">
+            <div class="why-section">
+                <div>
+                    <h3 style="text-align: left; margin: 0 0 30px 0;">
+                        Por que escolher <span class="highlight">Júnior</span>?
+                    </h3>
+                    <div class="why-list">
+                        <div class="why-item">
+                            <div class="why-icon">⭐</div>
+                            <div>
+                                <h4>Qualidade Garantida</h4>
+                                <p>Peças originais e substituições de primeira linha</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-icon">⏱️</div>
+                            <div>
+                                <h4>Rápido e Eficiente</h4>
+                                <p>Consertos sem demora, na maioria dos casos no mesmo dia</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-icon">🛡️</div>
+                            <div>
+                                <h4>10+ Anos de Experiência</h4>
+                                <p>Confiança de milhares de clientes ao longo dos anos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-visual">
+                    <div class="icon">💬</div>
+                    <p>Atendimento<br>Personalizado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Feedback -->
+    <section>
+        <div class="container">
+            <div class="feedback-section">
+                <h3 style="margin-top: 0;">Deixe seu <span class="highlight">Feedback</span></h3>
+                <p style="text-align: center; color: #ccc; margin-bottom: 30px;">
+                    Sua opinião é importante! Nos ajude a melhorar compartilhando sua experiência.
+                </p>
+
+                <div class="feedback-grid">
+                    <!-- Formulário -->
+                    <div class="feedback-form">
+                        <h4 style="color: #00D9FF; margin-bottom: 20px;">Avalie nosso serviço</h4>
+                        
+                        <div class="form-group">
+                            <label>Seu nome</label>
+                            <input type="text" placeholder="Digite seu nome" id="feedbackName">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Avaliação (1-5 estrelas)</label>
+                            <div class="rating" id="ratingStars">
+                                <span class="star" onclick="setRating(1)">★</span>
+                                <span class="star" onclick="setRating(2)">★</span>
+                                <span class="star" onclick="setRating(3)">★</span>
+                                <span class="star" onclick="setRating(4)">★</span>
+                                <span class="star" onclick="setRating(5)">★</span>
+                            </div>
+                            <input type="hidden" id="selectedRating" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sua mensagem</label>
+                            <textarea placeholder="Conte sua experiência..." id="feedbackMessage"></textarea>
+                        </div>
+
+                        <button class="submit-btn" onclick="submitFeedback()">Enviar Feedback</button>
+                    </div>
+
+                    <!-- Lista de Feedbacks -->
+                    <div>
+                        <h4 style="color: #00D9FF; margin-bottom: 20px;">Avaliações dos Clientes</h4>
+                        <div class="feedback-list" id="feedbackList">
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <span class="feedback-name">João Silva</span>
+                                    <div class="feedback-stars">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <p class="feedback-text">"Serviço excelente! Consertou meu celular no mesmo dia. Super recomendo!"</p>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <span class="feedback-name">Maria Santos</span>
+                                    <div class="feedback-stars">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <p class="feedback-text">"Profissional confiável, trabalha com peças originais. Muito bom!"</p>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <span class="feedback-name">Pedro Costa</span>
+                                    <div class="feedback-stars">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <p class="feedback-text">"Atendimento rápido e atencioso. Voltarei com certeza!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section>
+        <div class="container">
+            <div class="final-cta">
+                <h3>Pronto para <span class="highlight">reparar seu celular?</span></h3>
+                <p>Entre em contato agora mesmo e aproveite atendimento rápido, seguro e confiável!</p>
+                <div class="cta-buttons" style="justify-content: center;">
+                    <a href="https://wa.me/5519999440013?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20manutenção%20de%20celulares." target="_blank" class="btn btn-primary">
+                        <span>💬</span> Chamar no WhatsApp
+                    </a>
+                    <a href="tel:+5519999440013" class="btn btn-secondary">
+                        Ligar: (19) 99944-0013
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Júnior Manutenções de Celulares. Todos os direitos reservados.</p>
+            <p>📍 Piracicaba, São Paulo | ☎️ (19) 99944-0013 | Mais de 10 anos no mercado</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/109057150466075?ref=NONE_xav_ig_profile_page_web" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/juniorcelular_" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedRating = 0;
+
+        function setRating(rating) {
+            selectedRating = rating;
+            document.getElementById('selectedRating').value = rating;
+            
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function submitFeedback() {
+            const name = document.getElementById('feedbackName').value;
+            const message = document.getElementById('feedbackMessage').value;
+            const rating = document.getElementById('selectedRating').value;
+
+            if (!name || !message || rating === '0') {
+                alert('Por favor, preencha todos os campos e selecione uma avaliação!');
+                return;
+            }
+
+            // Criar estrelas
+            let stars = '';
+            for (let i = 0; i < rating; i++) {
+                stars += '★';
+            }
+
+            // Adicionar à lista
+            const feedbackItem = document.createElement('div');
+            feedbackItem.className = 'feedback-item';
+            feedbackItem.innerHTML = `
+                <div class="feedback-header">
+                    <span class="feedback-name">${name}</span>
+                    <div class="feedback-stars">
+                        <span>${stars}</span>
+                    </div>
+                </div>
+                <p class="feedback-text">"${message}"</p>
+            `;
+
+            document.getElementById('feedbackList').insertBefore(feedbackItem, document.getElementById('feedbackList').firstChild);
+
+            // Limpar formulário
+            document.getElementById('feedbackName').value = '';
+            document.getElementById('feedbackMessage').value = '';
+            document.getElementById('selectedRating').value = '0';
+            selectedRating = 0;
+            document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
+
+            // Enviar para WhatsApp (opcional)
+            const whatsappMessage = `Novo Feedback: ${name} - ${rating}⭐ - ${message}`;
+            console.log('Feedback enviado:', whatsappMessage);
+
+            alert('Obrigado pelo seu feedback! 🎉');
+        }
+
+        // Hover nos ratings
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseover', () => {
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.style.opacity = '1';
+                    } else {
+                        s.style.opacity = '0.5';
+                    }
+                });
+            });
+        });
+
+        document.getElementById('ratingStars').addEventListener('mouseleave', () => {
+            stars.forEach((star, index) => {
+                if (index < selectedRating) {
+                    star.style.opacity = '1';
+                } else {
+                    star.style.opacity = '0.5';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
